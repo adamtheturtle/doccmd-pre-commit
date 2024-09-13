@@ -1,0 +1,9 @@
+- id: doccmd
+  name: doccmd
+  description: Run a command against code blocks in documentation files
+  entry: doccmd
+  language: python
+  types_or: [markdown, rst]
+  args: []
+  require_serial: true
+  additional_dependencies: []

@@ -1,0 +1,6 @@
+[project]
+name = "doccmd-pre-commit"
+version = "0.0.0"
+dependencies = [
+    "doccmd==2024.9.11.5",
+]
