@@ -1,0 +1,39 @@
+---
+
+name: Release
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Publish a release
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: "Calver calculate version"
+        uses: StephaneBour/actions-calver@master
+        id: calver
+        with:
+          date_format: "%Y.%m.%d"
+          release: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          custom_tag: ${{ steps.calver.outputs.release }}
+          tag_prefix: ""
