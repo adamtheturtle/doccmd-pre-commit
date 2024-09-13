@@ -1,0 +1,1 @@
+# doccmd-pre-commit
