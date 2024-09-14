@@ -28,6 +28,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Fetch all history including tags.
+          # Needed to find the latest tag.
+          fetch-depth: 0
 
       - name: "Set up Python"
         uses: actions/setup-python@v5
@@ -38,6 +42,12 @@ jobs:
         run: |
           curl -LsSf https://astral.sh/uv/install.sh | sh
           uv pip install --system --upgrade --editable .[dev]
+
+      - name: Get current version
+        id: get_current_version
+        run: |
+          version="$(git describe --tags --abbrev=0)"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
 
       - name: Get doccmd version
         id: get_version
@@ -60,3 +70,20 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
+
+      - name: "Update README versions"
+        uses: jacobtomlinson/gha-find-replace@v3
+        env:
+          NEXT_VERSION: ${{ steps.get_version.outputs.version }}
+        with:
+          find: ${{ steps.get_current_version.outputs.version }}
+          replace: ${{ env.NEXT_VERSION }}
+          include: "README.rst"
+          regex: false
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        id: commit-readme
+        with:
+          commit_message: Replace version in README
+          branch: main
+          file_pattern: README.rst
