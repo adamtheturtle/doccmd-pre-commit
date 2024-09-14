@@ -1,12 +1,12 @@
 doccmd-pre-commit
 =================
 
-A pre-commit hook for doccmd.
+A `pre-commit`_ hook for `doccmd`_.
 
 Using doccmd with pre-commit
 ----------------------------
 
-To run doccmd with pre-commit, add hooks like the following to your `.pre-commit-config.yaml`:
+To run `doccmd`_ with `pre-commit`_, add hooks like the following to your ``.pre-commit-config.yaml``:
 
 .. code-block:: yaml
 
@@ -16,3 +16,6 @@ To run doccmd with pre-commit, add hooks like the following to your `.pre-commit
        -   id: doccmd
            args: ["--language", "shell", "--command", "shellcheck --shell=bash"]
            additional_dependencies: ["shellcheck-py"]
+
+.. _doccmd: https://doccmd.readthedocs.io
+.. _pre-commit: https://pre-commit.com
