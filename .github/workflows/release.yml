@@ -2,7 +2,17 @@
 
 name: Release
 
-on: workflow_dispatch
+# Trigger the workflow on manual dispatch and when pushing to the main branch.
+# If doccmd's version has not changed, the tagging will fail.
+# If doccmd's version has changed, the tagging will succeed and a new release will
+# be created.
+# This means that the version can stay in sync, and if the hook needs to be updated
+# to a new version to release changes in this repository, a new release of doccmd is needed.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
