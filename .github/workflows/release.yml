@@ -34,7 +34,7 @@ jobs:
         run: |
           output=$(doccmd --version)
           version="${output##* }"
-          echo "${version}" >> $GITHUB_OUTPUT
+          echo "version=${version}" >> $GITHUB_ENV
 
       - name: Bump version and push tag
         id: tag_version
