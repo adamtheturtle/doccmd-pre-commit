@@ -24,9 +24,22 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: "Install dependencies"
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv pip install --system --upgrade --editable .[dev]
+
+      - name: Get doccmd version
+        id: get_version
+        run: |
+          output=$(doccmd --version)
+          version="${output##* }"
+          echo "${version}" >> $GITHUB_OUTPUT
+
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          custom_tag: ${{ steps.get_version.outputs.version }}
           tag_prefix: "v"
