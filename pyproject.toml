@@ -12,3 +12,10 @@ classifiers = [
 dependencies = [
   "doccmd==2024.9.16",
 ]
+
+optional-dependencies.dev = [
+  "actionlint-py==1.7.1.15",
+  "doc8==1.1.2",
+  "pre-commit==3.8",
+  "pyproject-fmt==2.2.3",
+]
