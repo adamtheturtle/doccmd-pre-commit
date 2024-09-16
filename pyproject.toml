@@ -1,6 +1,14 @@
 [project]
 name = "doccmd-pre-commit"
 version = "0.0.0"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
 dependencies = [
-    "doccmd==2024.9.16",
+  "doccmd==2024.9.16",
 ]
