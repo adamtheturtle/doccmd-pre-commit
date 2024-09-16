@@ -1,0 +1,50 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+ci:
+    # We use system Python, with required dependencies specified in pyproject.toml.
+    # We therefore cannot use those dependencies in pre-commit CI.
+    skip:
+        - actionlint
+        - doc8
+        - pyproject-fmt-fix
+
+default_install_hook_types: [pre-commit, pre-push, commit-msg]
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.6.0
+  hooks:
+    - id: check-added-large-files
+    - id: check-case-conflict
+    - id: check-executables-have-shebangs
+    - id: check-merge-conflict
+    - id: check-shebang-scripts-are-executable
+    - id: check-symlinks
+    - id: check-toml
+    - id: check-vcs-permalinks
+    - id: check-yaml
+    - id: end-of-file-fixer
+    - id: file-contents-sorter
+      files: spelling_private_dict\.txt$
+    - id: trailing-whitespace
+- repo: local
+  hooks:
+    - id: actionlint
+      name: actionlint
+      entry: actionlint
+      language: system
+      pass_filenames: false
+      types_or: [yaml]
+
+    - id: doc8
+      name: doc8
+      entry: python -m doc8
+      language: system
+      types_or: [rst]
+
+    - id: pyproject-fmt-fix
+      name: pyproject-fmt
+      entry: pyproject-fmt
+      language: system
+      types_or: [toml]
+      files: pyproject.toml

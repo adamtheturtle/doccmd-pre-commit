@@ -1,6 +1,21 @@
 [project]
 name = "doccmd-pre-commit"
 version = "0.0.0"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
 dependencies = [
-    "doccmd==2024.9.16",
+  "doccmd==2024.9.16",
+]
+
+optional-dependencies.dev = [
+  "actionlint-py==1.7.1.15",
+  "doc8==1.1.2",
+  "pre-commit==3.8",
+  "pyproject-fmt==2.2.3",
 ]
