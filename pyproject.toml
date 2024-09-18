@@ -10,7 +10,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "doccmd==2024.9.16",
+    "doccmd==2024.9.18",
 ]
 
 optional-dependencies.dev = [
