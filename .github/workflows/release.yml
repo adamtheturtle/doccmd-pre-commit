@@ -43,6 +43,12 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
           uv pip install --system --upgrade --editable .[dev]
 
+      - name: Get current version
+        id: get_current_version
+        run: |
+          version="$(git describe --tags --abbrev=0)"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
       - name: Get doccmd version
         id: get_version
         run: |
@@ -68,7 +74,7 @@ jobs:
       - name: "Update README versions"
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: ${{ steps.tag_version.outputs.previous_tag }}
+          find: ${{ steps.get_version.outputs.version }}
           replace: ${{ steps.tag_version.outputs.new_tag }}
           include: "README.rst"
           regex: false
