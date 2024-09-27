@@ -74,8 +74,8 @@ jobs:
       - name: "Update README versions"
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: ${{ steps.get_version.outputs.version }}
-          replace: ${{ steps.tag_version.outputs.new_tag }}
+          find: ${{ steps.get_current_version.outputs.version }}
+          replace: ${{ steps.tag_version.outputs.new_version }}
           include: "README.rst"
           regex: false
 
