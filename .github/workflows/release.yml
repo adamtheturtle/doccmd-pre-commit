@@ -44,7 +44,7 @@ jobs:
           uv pip install --system --upgrade --editable .[dev]
 
       - name: Get current version
-        id: get_current_version
+        id: get_current_tag
         run: |
           version="$(git describe --tags --abbrev=0)"
           echo "version=${version}" >> "$GITHUB_OUTPUT"
@@ -74,8 +74,8 @@ jobs:
       - name: "Update README versions"
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: ${{ steps.get_current_version.outputs.version }}
-          replace: ${{ steps.tag_version.outputs.new_version }}
+          find: ${{ steps.get_current_tag.outputs.version }}
+          replace: ${{ steps.tag_version.outputs.new_tag}}
           include: "README.rst"
           regex: false
 
