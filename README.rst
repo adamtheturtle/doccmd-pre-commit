@@ -19,7 +19,7 @@ add hooks like the following to your ``.pre-commit-config.yaml``:
                 "--language",
                 "shell",
                 "--command",
-                "shellcheck --shell=bash",
+                "shellcheck --shell=bash --exclude=SC1017",
             ]
            additional_dependencies: ["shellcheck-py"]
 
