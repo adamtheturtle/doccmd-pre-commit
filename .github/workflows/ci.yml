@@ -35,3 +35,4 @@ jobs:
           uv run --all-extras --python=${{ matrix.python-version }} pre-commit run --all-files --hook-stage manual --verbose
 
       - uses: pre-commit-ci/lite-action@v1.0.3
+        if: always()
