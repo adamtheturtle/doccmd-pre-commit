@@ -37,7 +37,7 @@ jobs:
         with:
           timeout_seconds: 20
           max_attempts: 20
-          command: uv sync
+          command: uv sync --no-cache
         env:
           UV_PYTHON: python${{ matrix.python-version }}
 
