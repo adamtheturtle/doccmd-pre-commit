@@ -37,17 +37,17 @@ jobs:
         with:
           timeout_seconds: 20
           max_attempts: 20
-          command: uv sync
+          command: uv sync --no-cache
         env:
-          UV_PYTHON: python${{ matrix.python-version }}
+          UV_PYTHON: ${{ matrix.python-version }}
 
       - name: "Lint"
         run: |
-          uv run --all-extras pre-commit run --all-files --hook-stage pre-commit --verbose
-          uv run --all-extras pre-commit run --all-files --hook-stage pre-push --verbose
-          uv run --all-extras pre-commit run --all-files --hook-stage manual --verbose
+          uv run --extra=dev pre-commit run --all-files --hook-stage pre-commit --verbose
+          uv run --extra=dev pre-commit run --all-files --hook-stage pre-push --verbose
+          uv run --extra=dev pre-commit run --all-files --hook-stage manual --verbose
         env:
-          UV_PYTHON: python${{ matrix.python-version }}
+          UV_PYTHON: ${{ matrix.python-version }}
 
       - uses: pre-commit-ci/lite-action@v1.0.3
         if: always()
