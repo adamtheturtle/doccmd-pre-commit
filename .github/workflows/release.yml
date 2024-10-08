@@ -45,6 +45,17 @@ jobs:
           version="$(git describe --tags --abbrev=0)"
           echo "version=${version}" >> "$GITHUB_OUTPUT"
 
+      # We have a race condition.
+      # In particular, we push doccmd to PyPI and then not long after we try to install
+      # the pushed version.
+      # Here, we give PyPI time to propagate the package.
+      - name: Install doccmd from PyPI
+        uses: nick-fields/retry@v3
+        with:
+          timeout_seconds: 20
+          max_attempts: 20
+          command: uv sync --refresh
+
       - name: Get doccmd version
         id: get_version
         run: |
