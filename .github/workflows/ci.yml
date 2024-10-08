@@ -28,11 +28,26 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v3
 
+      # We have a race condition.
+      # In particular, we push doccmd to PyPI and then not long after we try to install
+      # the pushed version.
+      # Here, we give PyPI time to propagate the package.
+      - name: Install doccmd from PyPI
+        uses: nick-fields/retry@v3
+        with:
+          timeout_seconds: 20
+          max_attempts: 20
+          command: uv sync
+        env:
+          UV_PYTHON: python${{ matrix.python-version }}
+
       - name: "Lint"
         run: |
-          uv run --all-extras --python=${{ matrix.python-version }} pre-commit run --all-files --hook-stage pre-commit --verbose
-          uv run --all-extras --python=${{ matrix.python-version }} pre-commit run --all-files --hook-stage pre-push --verbose
-          uv run --all-extras --python=${{ matrix.python-version }} pre-commit run --all-files --hook-stage manual --verbose
+          uv run --all-extras pre-commit run --all-files --hook-stage pre-commit --verbose
+          uv run --all-extras pre-commit run --all-files --hook-stage pre-push --verbose
+          uv run --all-extras pre-commit run --all-files --hook-stage manual --verbose
+        env:
+          UV_PYTHON: python${{ matrix.python-version }}
 
       - uses: pre-commit-ci/lite-action@v1.0.3
         if: always()
