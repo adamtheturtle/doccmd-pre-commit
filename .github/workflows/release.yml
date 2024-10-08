@@ -2,7 +2,7 @@
 
 name: Release
 
-# Trigger the workflow on manual dispatch and when merging a Dependabot PR.
+# Trigger the workflow on manual dispatch and when merging a PR.
 # If doccmd's version has not changed, the tagging will fail.
 # If doccmd's version has changed, the tagging will succeed and a new release will
 # be created.
@@ -18,8 +18,6 @@ jobs:
   build:
     name: Publish a release
     runs-on: ubuntu-latest
-
-    if: ${{ github.event.head_commit.author.name == 'dependabot[bot]' || github.event_name == 'workflow_dispatch' }}
 
     strategy:
       matrix:
