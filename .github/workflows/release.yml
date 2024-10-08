@@ -9,15 +9,16 @@ name: Release
 # This means that the version can stay in sync, and if the hook needs to be updated
 # to a new version to release changes in this repository, a new release of doccmd is needed.
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [closed]
   workflow_dispatch:
 
 jobs:
   build:
     name: Publish a release
     runs-on: ubuntu-latest
+
+    if: ${{ github.event.pull_request.merged == true && github.event.pull_request.user.login == 'dependabot[bot]' || github.event_name == 'workflow_dispatch' }}
 
     strategy:
       matrix:
