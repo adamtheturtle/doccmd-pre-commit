@@ -12,7 +12,7 @@ ci:
     - doc8
     - pyproject-fmt-fix
     - shellcheck
-    - docformatter --in-place
+    - docformatter
     - shellcheck-docs
     - shfmt
     - shfmt-docs
