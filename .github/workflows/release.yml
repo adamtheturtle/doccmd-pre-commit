@@ -2,7 +2,7 @@
 
 name: Release
 
-# Trigger the workflow on manual dispatch and when pushing to the main branch.
+# Trigger the workflow on manual dispatch and when merging a Dependabot PR.
 # If doccmd's version has not changed, the tagging will fail.
 # If doccmd's version has changed, the tagging will succeed and a new release will
 # be created.
