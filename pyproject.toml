@@ -23,9 +23,14 @@ optional-dependencies.dev = [
     # use it to lint shell commands in GitHub workflow files.
     "shellcheck-py==0.10.0.1",
     "shfmt-py==3.7.0.1",
+    "yamlfix==1.17.0",
 ]
 
 [tool.pyproject-fmt]
 indent = 4
 keep_full_version = true
 max_supported_python = "3.13"
+
+[tool.yamlfix]
+section_whitelines = 1
+whitelines = 1
