@@ -34,3 +34,9 @@ max_supported_python = "3.13"
 [tool.yamlfix]
 section_whitelines = 1
 whitelines = 1
+
+[tool.doc8]
+
+max_line_length = 2000
+# See https://github.com/PyCQA/doc8/issues/78
+ignore = [ "D004" ]
