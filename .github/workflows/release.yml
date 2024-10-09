@@ -10,8 +10,7 @@ name: Release
 # to a new version to release changes in this repository, a new release of doccmd is needed.
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -21,7 +20,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.12"]
+        python-version: ['3.13']
 
     permissions:
       contents: write
@@ -69,7 +68,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_tag: ${{ steps.get_version.outputs.version }}
-          tag_prefix: "v"
+          tag_prefix: v
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
@@ -78,12 +77,12 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
 
-      - name: "Update README versions"
+      - name: Update README versions
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: ${{ steps.get_current_tag.outputs.version }}
           replace: ${{ steps.tag_version.outputs.new_tag}}
-          include: "README.rst"
+          include: README.rst
           regex: false
 
       - uses: stefanzweifel/git-auto-commit-action@v5

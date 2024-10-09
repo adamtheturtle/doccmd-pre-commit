@@ -17,7 +17,7 @@ jobs:
         uses: dependabot/fetch-metadata@v2
         with:
           # Use a PAT so that merging this can trigger the release workflow.
-          github-token: "${{ secrets.RELEASE_PAT }}"
+          github-token: ${{ secrets.RELEASE_PAT }}
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
         env:

@@ -7,6 +7,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
     "doccmd==2024.10.8.12",
@@ -22,8 +23,20 @@ optional-dependencies.dev = [
     # use it to lint shell commands in GitHub workflow files.
     "shellcheck-py==0.10.0.1",
     "shfmt-py==3.7.0.1",
+    "yamlfix==1.17.0",
 ]
 
 [tool.pyproject-fmt]
 indent = 4
 keep_full_version = true
+max_supported_python = "3.13"
+
+[tool.yamlfix]
+section_whitelines = 1
+whitelines = 1
+
+[tool.doc8]
+
+max_line_length = 2000
+# See https://github.com/PyCQA/doc8/issues/78
+ignore = [ "D004" ]
