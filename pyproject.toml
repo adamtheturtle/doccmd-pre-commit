@@ -16,6 +16,9 @@ optional-dependencies.dev = [
     "actionlint-py==1.7.6.22",
     "doc8==1.1.2",
     "docformatter==1.7.5",
+    # Dependency of mypy[faster-cache].
+    # Versioned here to work around https://github.com/ijl/orjson/issues/548
+    "orjson==3.10.14",
     "pre-commit==4.0.1",
     "pyproject-fmt==2.5.0",
     # We add shellcheck-py not only for shell scripts and shell code blocks,
