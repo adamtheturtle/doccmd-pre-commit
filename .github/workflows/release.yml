@@ -91,3 +91,5 @@ jobs:
           commit_message: Replace version in README
           branch: main
           file_pattern: README.rst
+          # Error if there are no changes.
+          skip_dirty_check: true
