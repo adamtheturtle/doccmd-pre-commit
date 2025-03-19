@@ -15,7 +15,7 @@ optional-dependencies.dev = [
     "actionlint-py==1.7.7.23",
     "doc8==1.1.2",
     "docformatter==1.7.5",
-    "pre-commit==4.1.0",
+    "pre-commit==4.2.0",
     "pyproject-fmt==2.5.1",
     # We add shellcheck-py not only for shell scripts and shell code blocks,
     # but also because having it installed means that ``actionlint-py`` will
