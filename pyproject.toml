@@ -23,7 +23,7 @@ optional-dependencies.dev = [
     "shellcheck-py==0.11.0.1",
     "shfmt-py==3.12.0.2",
     "sphinx-lint==1.0.0",
-    "yamlfix==1.18.0",
+    "yamlfix==1.19.0",
 ]
 
 [tool.pyproject-fmt]
