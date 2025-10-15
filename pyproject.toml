@@ -16,7 +16,7 @@ optional-dependencies.dev = [
     "doc8==2.0.0",
     "docformatter==1.7.7",
     "pre-commit==4.3.0",
-    "pyproject-fmt==2.10.0",
+    "pyproject-fmt==2.11.0",
     # We add shellcheck-py not only for shell scripts and shell code blocks,
     # but also because having it installed means that ``actionlint-py`` will
     # use it to lint shell commands in GitHub workflow files.
