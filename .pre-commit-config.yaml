@@ -96,8 +96,8 @@ repos:
 
       - id: shellcheck-docs
         name: shellcheck-docs
-        entry: uv run --extra=dev doccmd --language=shell --language=console --command="shellcheck
-          --shell=bash"
+        entry: uv run --extra=dev doccmd --no-write-to-file --language=shell --language=console
+          --command="shellcheck --shell=bash"
         language: python
         types_or: [markdown, rst]
         additional_dependencies: [uv==0.9.5]
