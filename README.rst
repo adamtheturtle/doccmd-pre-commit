@@ -12,7 +12,7 @@ add hooks like the following to your ``.pre-commit-config.yaml``:
 .. code-block:: yaml
 
    -   repo: https://github.com/adamtheturtle/doccmd-pre-commit
-       rev: v2025.10.27
+       rev: v2025.11.8
        hooks:
        -   id: doccmd
            args: [
