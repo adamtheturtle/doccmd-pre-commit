@@ -23,5 +23,5 @@ add hooks like the following to your ``.pre-commit-config.yaml``:
             ]
            additional_dependencies: ["shellcheck-py"]
 
-.. _doccmd: https://doccmd.readthedocs.io
+.. _doccmd: https://adamtheturtle.github.io/doccmd/
 .. _pre-commit: https://pre-commit.com
