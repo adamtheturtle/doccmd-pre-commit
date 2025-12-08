@@ -81,8 +81,8 @@ jobs:
         id: update_readme_versions
         uses: jacobtomlinson/gha-find-replace@v3
         with:
-          find: '(rev: )v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+'
-          replace: $1${{ steps.tag_version.outputs.new_tag}}
+          find: '(rev: )v[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?'
+          replace: ${1}${{ steps.tag_version.outputs.new_tag}}
           include: README.rst
           regex: true
 
