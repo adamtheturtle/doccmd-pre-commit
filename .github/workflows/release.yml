@@ -81,6 +81,7 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
 
       - name: Update README versions
+        id: update_readme_versions
         uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: ${{ steps.get_current_tag.outputs.version }}
@@ -88,6 +89,12 @@ jobs:
           include: README.rst
           regex: false
 
+      - name: Check Update README versions was modified
+        run: |
+          if [ "${{ steps.update_readme_versions.outputs.modifiedFiles }}" = "0" ]; then
+            echo "Error: No files were modified when updating README versions"
+            exit 1
+          fi
       - uses: stefanzweifel/git-auto-commit-action@v7
         id: commit-readme
         with:
