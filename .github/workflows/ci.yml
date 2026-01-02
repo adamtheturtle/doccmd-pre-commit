@@ -1,5 +1,4 @@
 ---
-
 name: CI
 
 on:
@@ -16,7 +15,6 @@ permissions: {}
 
 jobs:
   build:
-
     strategy:
       matrix:
         python-version: ['3.11', '3.12', '3.13']
@@ -50,9 +48,8 @@ jobs:
 
       - name: Lint
         run: |
+          # pre-commit is the only hook stage
           uv run --extra=dev prek run --all-files --hook-stage pre-commit --verbose
-          uv run --extra=dev prek run --all-files --hook-stage pre-push --verbose
-          uv run --extra=dev prek run --all-files --hook-stage manual --verbose
         env:
           UV_PYTHON: ${{ matrix.python-version }}
 

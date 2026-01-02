@@ -20,6 +20,7 @@ ci:
     - yamlfix
     - zizmor
 
+# This should match the hook stages run in the lint configuration.
 default_install_hook_types: [pre-commit]
 
 repos:
