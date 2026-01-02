@@ -20,7 +20,7 @@ ci:
     - yamlfix
     - zizmor
 
-default_install_hook_types: [pre-commit, pre-push]
+default_install_hook_types: [pre-commit]
 
 repos:
   - repo: meta
