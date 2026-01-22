@@ -47,6 +47,9 @@ jobs:
           UV_PYTHON: ${{ matrix.python-version }}
 
       - name: Lint
+        # Use bash to ensure the step fails if any command fails.
+        # PowerShell does not fail on intermediate command failures by default.
+        shell: bash
         run: |
           # pre-commit is the only hook stage
           uv run --extra=dev prek run --all-files --hook-stage pre-commit --verbose
