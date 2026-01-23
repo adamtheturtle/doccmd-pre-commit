@@ -9,7 +9,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
-    "doccmd==2026.1.22.1",
+    "doccmd==2026.1.23.4",
 ]
 optional-dependencies.dev = [
     "actionlint-py==1.7.10.24",
