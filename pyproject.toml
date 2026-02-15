@@ -33,6 +33,9 @@ indent = 4
 keep_full_version = true
 max_supported_python = "3.14"
 
+[tool.coverage]
+report.show_missing = true
+
 [tool.pyrefly]
 errors.non-exhaustive-match = "error"
 
