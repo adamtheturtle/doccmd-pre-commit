@@ -33,6 +33,9 @@ indent = 4
 keep_full_version = true
 max_supported_python = "3.14"
 
+[tool.pyrefly]
+errors.non-exhaustive-match = "error"
+
 [tool.yamlfix]
 section_whitelines = 1
 whitelines = 1
