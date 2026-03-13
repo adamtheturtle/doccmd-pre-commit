@@ -10,18 +10,10 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    environment: release
     if: github.actor == 'dependabot[bot]'
     steps:
-      - name: Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@v2
-        with:
-          # Use a PAT so that merging this can trigger the release workflow.
-          github-token: ${{ secrets.RELEASE_PAT }}
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          # Use a PAT so that merging this can trigger the release workflow.
-          GH_TOKEN: ${{secrets.RELEASE_PAT}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
