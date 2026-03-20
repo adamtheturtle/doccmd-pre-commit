@@ -40,7 +40,7 @@ jobs:
       # the pushed version.
       # Here, we give PyPI time to propagate the package.
       - name: Install doccmd from PyPI
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           timeout_seconds: 20
           max_attempts: 20
