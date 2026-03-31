@@ -13,7 +13,7 @@ dependencies = [
     "doccmd==2026.3.26.2",
 ]
 optional-dependencies.dev = [
-    "actionlint-py==1.7.11.24",
+    "actionlint-py==1.7.12.24",
     "doc8==2.0.0",
     "prek==0.3.8",
     "pydocstringformatter==0.7.5",
