@@ -1,6 +1,8 @@
 ---
 fail_fast: true
 
+.uv_version: &uv_version uv==0.9.5
+
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 
@@ -77,7 +79,8 @@ repos:
         language: python
         pass_filenames: false
         types_or: [yaml]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: pydocstringformatter
@@ -85,7 +88,8 @@ repos:
         entry: uv run --extra=dev pydocstringformatter
         language: python
         types_or: [python]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: shellcheck
@@ -93,7 +97,8 @@ repos:
         entry: uv run --extra=dev shellcheck --shell=bash
         language: python
         types_or: [shell]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: shellcheck-docs
@@ -102,7 +107,8 @@ repos:
           --language=console --command="shellcheck --shell=bash"
         language: python
         types_or: [markdown, rst]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: shfmt
@@ -110,7 +116,8 @@ repos:
         entry: uv run --extra=dev shfmt --write --space-redirects --indent=4
         language: python
         types_or: [shell]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: shfmt-docs
@@ -119,7 +126,8 @@ repos:
           --no-pad-file --command="shfmt --write --space-redirects --indent=4"
         language: python
         types_or: [markdown, rst]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: doc8
@@ -127,7 +135,8 @@ repos:
         entry: uv run --extra=dev -m doc8
         language: python
         types_or: [rst]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: pyproject-fmt-fix
@@ -136,7 +145,8 @@ repos:
         language: python
         types_or: [toml]
         files: pyproject.toml
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: yamlfix
@@ -144,7 +154,8 @@ repos:
         entry: uv run --extra=dev yamlfix
         language: python
         types_or: [yaml]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: zizmor
@@ -153,7 +164,8 @@ repos:
         language: python
         pass_filenames: false
         types_or: [yaml]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
 
       - id: sphinx-lint
@@ -161,5 +173,6 @@ repos:
         entry: uv run --extra=dev sphinx-lint --enable=all --disable=line-too-long
         language: python
         types_or: [rst]
-        additional_dependencies: [uv==0.9.5]
+        additional_dependencies:
+          - *uv_version
         stages: [pre-commit]
