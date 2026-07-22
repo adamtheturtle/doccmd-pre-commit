@@ -25,7 +25,7 @@ optional-dependencies.dev = [
     "shfmt-py==4.0.0",
     "sphinx-lint==1.0.2",
     "yamlfix==1.19.1",
-    "zizmor==1.27.0",
+    "zizmor==1.28.0",
 ]
 
 [tool.pyproject-fmt]
