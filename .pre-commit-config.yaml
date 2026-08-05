@@ -6,22 +6,6 @@ fail_fast: true
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 
-ci:
-  # We use system Python, with required dependencies specified in pyproject.toml.
-  # We therefore cannot use those dependencies in pre-commit CI.
-  skip:
-    - actionlint
-    - doc8
-    - pydocstringformatter
-    - pyproject-fmt-fix
-    - shellcheck
-    - shellcheck-docs
-    - shfmt
-    - shfmt-docs
-    - sphinx-lint
-    - yamlfix
-    - zizmor
-
 # This should match the hook stages run in the lint configuration.
 default_install_hook_types: [pre-commit]
 
