@@ -15,7 +15,7 @@ dependencies = [
 optional-dependencies.dev = [
     "actionlint-py==1.7.12.24",
     "doc8==2.0.0",
-    "prek==0.4.12",
+    "prek==0.4.13",
     "pydocstringformatter==1.0.0",
     "pyproject-fmt==2.27.0",
     # We add shellcheck-py not only for shell scripts and shell code blocks,
