@@ -12,7 +12,9 @@ classifiers = [
 dependencies = [
     "doccmd==2026.9.1",
 ]
-optional-dependencies.dev = [
+
+[dependency-groups]
+dev = [
     "actionlint-py==1.7.12.24",
     "doc8==2.0.0",
     "prek==0.5.2",
