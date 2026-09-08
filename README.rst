@@ -6,8 +6,7 @@ A `pre-commit`_ hook for `doccmd`_.
 Using doccmd with pre-commit
 ----------------------------
 
-To run `doccmd`_ with `pre-commit`_,
-add hooks like the following to your ``.pre-commit-config.yaml``:
+To run `doccmd`_ with `pre-commit`_, add hooks like the following to your ``.pre-commit-config.yaml``:
 
 .. code-block:: yaml
 
