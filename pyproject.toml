@@ -36,7 +36,7 @@ max_supported_python = "3.14"
 
 [tool.pyrefly]
 errors.non-exhaustive-match = "error"
-preset = "strict"
+preset = "all"
 
 [tool.coverage]
 report.show_missing = true
