@@ -10,7 +10,7 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
-    "doccmd==2026.9.1",
+    "doccmd==2026.9.7",
 ]
 
 [dependency-groups]
