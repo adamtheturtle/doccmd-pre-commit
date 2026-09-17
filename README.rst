@@ -11,7 +11,7 @@ To run `doccmd`_ with `pre-commit`_, add hooks like the following to your ``.pre
 .. code-block:: yaml
 
    -   repo: https://github.com/adamtheturtle/doccmd-pre-commit
-       rev: v2026.9.16
+       rev: v2026.9.16.1
        hooks:
        -   id: doccmd
            args: [
