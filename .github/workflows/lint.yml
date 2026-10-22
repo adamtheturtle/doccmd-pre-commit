@@ -48,7 +48,7 @@ jobs:
           UV_PYTHON: ${{ matrix.python-version }}
 
       - name: Lint
-        uses: j178/prek-action@v3.0.1
+        uses: j178/prek-action@v3.0.2
         with:
           prek-version: 0.4.11
           extra-args: >-
