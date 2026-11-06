@@ -30,7 +30,7 @@ dev = [
     "sphinx-lint==1.0.2",
     "vale==3.26.0.1",
     "yamlfix==1.19.1",
-    "zizmor==1.31.1",
+    "zizmor==1.32.0",
 ]
 
 [tool.pyproject-fmt]
