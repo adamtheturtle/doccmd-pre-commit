@@ -18,6 +18,7 @@ dependencies = [
 dev = [
     "actionlint-py==1.7.12.25",
     "doc8==2.0.0",
+    "doc8-inline-markup==2026.11.18.3; python_version>='3.12'",
     "prek==0.5.10",
     "pydocstringformatter==1.0.0",
     "pyproject-fmt==2.30.6",
