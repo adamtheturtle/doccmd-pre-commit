@@ -21,7 +21,7 @@ dev = [
     "doc8-inline-markup==2026.11.18.3; python_version>='3.12'",
     "prek==0.5.11",
     "pydocstringformatter==1.0.0",
-    "pyproject-fmt==2.30.6",
+    "pyproject-fmt==2.31.0",
     # We add shellcheck-py not only for shell scripts and shell code blocks,
     # but also because having it installed means that ``actionlint-py`` will
     # use it to lint shell commands in GitHub workflow files.
