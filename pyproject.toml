@@ -40,7 +40,6 @@ keep_full_version = true
 max_supported_python = "3.15"
 
 [tool.pyrefly]
-errors.non-exhaustive-match = "error"
 enabled-ignores = [ "pyrefly" ]
 preset = "all"
 
